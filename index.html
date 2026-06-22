@@ -2,55 +2,88 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Clara ❤️ Joan</title>
+<title>Clara & Joan 💖</title>
 
 <style>
-body{
-    margin:0;
-    font-family:Arial,sans-serif;
-    background:linear-gradient(#ffffff,#ffd6e7);
-    text-align:center;
-    color:#d81b60;
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, sans-serif;
+  overflow: hidden;
 }
 
-header{
-    padding:50px 20px;
+.card {
+  text-align: center;
+  color: white;
+  animation: fadeIn 3s ease-in-out;
 }
 
-h1{
-    font-size:40px;
+h1 {
+  font-size: 40px;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
 }
 
-img{
-    width:250px;
-    border-radius:20px;
-    box-shadow:0 0 20px pink;
+p {
+  font-size: 20px;
 }
 
-button{
-    background:#ff4f87;
-    color:white;
-    border:none;
-    padding:15px 30px;
-    border-radius:30px;
-    font-size:18px;
-    cursor:pointer;
+@keyframes fadeIn {
+  from {opacity: 0; transform: scale(0.8);}
+  to {opacity: 1; transform: scale(1);}
 }
 
-footer{
-    margin-top:40px;
-    padding:20px;
+/* corazones flotando */
+.heart {
+  position: absolute;
+  color: #ff4d6d;
+  animation: float 6s infinite linear;
+}
+
+@keyframes float {
+  from {transform: translateY(100vh) scale(0.5);}
+  to {transform: translateY(-10vh) scale(1.2);}
 }
 </style>
-
 </head>
 
 <body>
 
-<header>
-<h1>❤️ Clara Ramos & Joan Cabanillas ❤️</h1>
+<div class="card">
+  <h1>❤️ Clara Ramos & Joan Cabanillas ❤️</h1>
+  <p>Desde el 01/06/2025 mi vida cambió para siempre.</p>
+</div>
 
-<p>Desde el 01/06/2025 mi vida cambió para siempre.</p>
+<script>
+// corazones animados
+function createHeart() {
+  const heart = document.createElement("div");
+  heart.classList.add("heart");
+  heart.innerHTML = "❤️";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.fontSize = Math.random() * 20 + 10 + "px";
+  document.body.appendChild(heart);
 
-<img src="https://placehold.co/400x500/pink/white?
+  setTimeout(() => {
+    heart.remove();
+  }, 6000);
+}
+
+setInterval(createHeart, 300);
+
+// música (opcional)
+// descomenta si quieres agregar música
+/*
+const audio = new Audio("https://www.bensound.com/bensound-music/bensound-love.mp3");
+audio.loop = true;
+audio.play();
+*/
+</script>
+
+</body>
+</html>
